@@ -1,0 +1,352 @@
+/* Definiendo distribución del contenido de la card; width, flex, center, padding */
+.main {
+    background: var(--back);
+}
+
+.contenedor{
+    width: 750px;
+    max-width: 100%;
+    margin: auto ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+/* ----------------- Estilos globales de la tarjeta ----------------- */
+.tarjeta{
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: #fff;
+    transition: .3s ease all;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    user-select: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+button {
+    width: 50%;
+    margin: 1px;
+}
+
+/* animation, rotation 180deg */
+.tarjeta.active{
+    transform: rotateY(180deg) ;
+}
+
+.tarjeta > div { 
+    padding: 35px;
+    border-radius: 15px;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: -10px 10px 15px rgba(48, 60, 74, 0.6) ;
+}
+
+/* --------------- Tarjeta Delantera --------------- */
+
+/* Estilo de fondo de la tarjeta */
+.tarjeta .delantera {
+    width: 100%;
+    background: url(../../../../../../assets/bg-tarjeta-01.jpg);
+    background-size: cover;
+    backface-visibility: hidden;
+}
+
+/* posicion de la marca en la parte superior de la tarjeta */
+.delantera .logo-marca {
+    text-align: right;
+    min-height: 50px;
+}
+
+/* dandole el tamaño al logo de la tarjeta que cambia dinámicamente */
+.delantera .logo-marca img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 4rem;
+}
+
+/* estilo y tamaño del chip */
+.delantera .chip {
+    position: absolute;
+    bottom:13rem;
+    left: 3rem;
+    width: 100%;
+    max-width: 60px;
+    margin: 20px 0 20px 5px;
+}
+
+/* dandole estilo a los labels */
+.delantera .grupo .label { 
+    font-size: 1.08rem;
+    color: #acacac;
+    margin-bottom: .5rem
+}
+
+/* dandole estilo a los datos del usuario */
+.delantera .grupo .numero,
+.delantera .grupo .nombre,
+.delantera .grupo .expiracion {
+    letter-spacing: 1.5px;
+    color: #FFF;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.expiracion{
+    min-width: 5.5rem;
+}
+
+#numero{
+    font-size: 1.8rem;
+    position: relative;
+    padding: .3rem;
+}
+
+#numero.active{
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(34, 34, 34)
+}
+
+/* espaciando el contenido de la tarjeta a sus magenes (left/right) */
+.delantera .flexbox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+}
+
+/* ----------------- Tarjeta Trasera ----------------- */
+
+.trasera {
+    height: 345px;
+    max-width: 550px;
+    min-width: 550px;
+    background: url(../../../../../../assets/bg-tarjeta-03.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.back {    
+    display: flex;
+    justify-content: end;
+    margin: 2.5rem 1rem 1rem 0;
+}
+
+.trasera .logo-marca img {
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 6rem;
+}
+
+/* banda magnetica */
+.trasera .barra-magnetica {
+    height: 3.7rem;
+    background: rgba(0, 0, 0, 0.854);
+    width: 100%;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+}
+
+/* posicionando fuera de barra magnetica */
+.trasera .datos { 
+    margin: 5rem 0 0 0; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.trasera .datos p {
+    margin-bottom: 5px;
+}
+
+/* recuadro CVV */
+.trasera .datos #ccv {
+    width: 100%;
+}
+
+.trasera .datos .grupo .ccvP {
+    background: #fff;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1.2rem;
+    height: 2.6rem;
+    padding: .7rem;
+    position: relative;
+    top: 1.3rem;
+    text-align: center;
+    z-index: 3;
+}
+
+.trasera .leyenda { 
+    font-size: 1rem;
+    line-height: 22px;
+    text-align: justify;
+}
+
+.trasera .link-banco {
+    font-size: 1rem;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    bottom: 1rem
+}
+
+/* ---------------- Contenedor Boton ----------------*/
+
+.contenedor-btn .btn-abrir-formulario {
+    background: #2364d2;
+    color: #fff;
+    font-size: 1.6rem;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    bottom: 1.5rem;
+    border:none;
+    border-radius: 100%;
+    box-shadow: -5px 4px 8px rgba(24,56,182,.4);
+    z-index: 10;
+    padding: .2rem;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.contenedor-btn .btn-abrir-formulario:hover {
+    background: #1850b1
+}
+
+.contenedor-btn .btn-abrir-formulario.active {
+    transform: rotate(45deg)
+}
+
+/* -------------------- Formulario Tarjeta -------------------- */
+
+.formulario-tarjeta { 
+    background: var(--back);
+    width: 100%;
+    padding: 150px 30px 30px 30px;
+    max-width: 90%;
+    border-radius: 10px;
+    position: relative;
+    bottom: 10rem;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, .13);
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.4s ease-out;
+}
+
+.formulario-tarjeta.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.formulario-tarjeta label {
+    display: block;
+    color: #7d8994;
+    margin-bottom: 5px;   
+}
+
+.formulario-tarjeta input,
+.formulario-tarjeta select,
+.btn-enviar {
+    border: 2px solid #CED6E0;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: .3s ease all;
+    border-radius: 5px;
+}
+
+.formulario-tarjeta input:hover,
+.formulario-tarjeta select:hover {
+    border: 2px solid #93BDED;
+}
+
+.formulario-tarjeta input:focus,
+.formulario-tarjeta select:focus {
+    outline: rgba(4,4,4);
+    box-shadow: 1px 7px 10px -5px rgba(90,116,148,0.3);
+}
+
+
+.formulario-tarjeta input {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.formulario-tarjeta .flexbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario-tarjeta .expira {
+    width: 100%;
+}
+
+.formulario-tarjeta .ccvP {
+    min-width: 100px;
+}
+
+#cvvLabel{
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+    display: flex;
+    justify-content: end;
+    margin: .5rem .5rem 0 0;
+}
+
+#codigo{
+    padding: 0.3rem 1.2rem 0 0;
+    font-weight: bold;
+    letter-spacing: .2rem;
+}
+
+.formulario-tarjeta .grupo-select {
+    width: 100%;
+    margin-right: 1rem;
+    position: relative;
+}
+
+.formulario-tarjeta select {
+    -webkit-appearance: none;
+}
+
+.formulario-tarjeta .grupo-select i {
+    position: absolute;
+    color: #CED6E0;
+    top: 1.07rem;
+    right: .9rem;
+    transition: .3s ease all;
+}
+
+.formulario-tarjeta .grupo-select:hover i {
+    color: #93bfed;
+}
+
+.formulario-tarjeta .btn-enviar {
+    border: none;
+    padding: .6rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background: #2364d2;
+    box-shadow: 2px 2px 10px 0px rgba(0, 85, 212,.4);
+    cursor: pointer;
+}
+
+.formulario-tarjeta .btn-enviar:hover{
+    background: #1850b1;
+}
+
+.formulario-tarjeta div.grupo_gmail input#inputGmail {
+    text-transform: lowercase;
+}

@@ -1,0 +1,19 @@
+<div class="main">
+    <div class="listProducts">
+        <h1>Cesta de la compra</h1>
+        <div class="nothing" *ngIf="cart?.length==0">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2FjMzAxYjY0ZGZiNWVmNjdhYThmMTFjM2NmMDY2MGNlZDEyZGE4NyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/g01ZnwAUvutuK8GIQn/giphy.gif">
+            <h1>¡Ups!</h1>
+            <h1>No tienes nada en tu carrito, mira nuestras canciones y agrega lo que te guste</h1>
+            <div class="center">
+                <button class="go" routerLink="/products"> Canciones </button>
+            </div>
+        </div>
+        <app-cart-products *ngFor="let product of cart" [product]="product" (update)="update($event)"></app-cart-products>
+    </div>
+    <div class="buy">
+        <h1>Resumen</h1>
+        <h3>Total a pagar: <span>Gratis</span></h3>
+        <button routerLink="/user/payment" [disabled]="cart.length==0">Realizar compra</button>
+    </div>
+</div>

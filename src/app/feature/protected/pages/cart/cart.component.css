@@ -1,0 +1,78 @@
+.main {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    padding: 15px 0px;
+    margin: 0px auto;
+    width: 80%;
+    min-height: 65.8vh;
+}
+
+.nothing {
+    text-align: center;
+}
+
+.nothing img {
+    margin-top: 20px;
+}
+
+.nothing h1 {
+    margin-top: 30px;
+}
+
+.listProducts {
+    background-color: var(--back);
+    max-width: 100%;
+    margin: 10px 10px;
+    padding: 15px 15px;
+}
+
+.buy {
+    background-color: var(--back);
+    max-width: 100%;
+    max-height: 25vh;
+    margin: 10px 10px;
+    padding: 20px 30px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: var(--alt-color);
+    color: white;
+    border-radius: 40px;
+}
+
+.go {
+    width: 40%;
+    margin-top: 20px;
+}
+
+button:hover {
+    transition: all 0.5s;
+    background: var(--alt-color-hover);
+}
+
+h3 {
+    position: relative;
+}
+
+span {
+    position: absolute;
+    right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .main {
+      display: block;
+    }
+
+    button {
+        width: 50%;
+    }
+    
+    .go {
+        width: 50%;
+    }
+}

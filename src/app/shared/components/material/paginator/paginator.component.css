@@ -1,0 +1,4 @@
+mat-paginator {
+    background-color: var(--text);
+    color: var(--background);
+}

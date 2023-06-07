@@ -1,0 +1,36 @@
+<header class="border-bottom">
+    <div class="logo">
+        <a routerLink="./"><img src="../../../../assets/logo.png" alt=""></a>
+    </div>
+    <input type="checkbox" id="nav_check" hidden>
+    <nav>
+        <div class="logo">
+            <img routerLink="./" src="../../../../assets/logo.png" alt="">
+        </div>
+        <ul>
+            <li>
+                <a routerLink="/">Home</a>
+            </li>
+            <li>
+                <a routerLink="/products">Canciones</a>
+            </li>
+            <li>
+                <a routerLink="/user/cart"><i matBadge="15" matBadgeSize="small" matBadgeColor="warn" class="fa-solid fa-cart-shopping"></i><span> Carrito</span></a>
+            </li>
+            <li>
+                <a *ngIf="route" routerLink="/user"><i class="fa-solid fa-user"></i><span> Perfil</span></a>
+                <a *ngIf="!route" routerLink="/auth"><i class="fa-solid fa-user"></i><span> Iniciar sesión</span></a>
+            </li>
+            <li>
+                <a class="night" (click)="NightMode()"><img #btnIcon class="image" [src]="imageBase"><span> Cambiar tema</span></a>
+            </li>
+        </ul>
+    </nav>
+    <label for="nav_check" class="hamburger">
+        <div class="x">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </label>
+</header>

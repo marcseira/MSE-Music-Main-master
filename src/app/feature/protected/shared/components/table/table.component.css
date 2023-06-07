@@ -1,0 +1,59 @@
+table {
+    width: 100%;
+    background-color: var(--text);
+    color: var(--background);
+}
+
+button {
+    margin: 0px 5px;
+}
+
+td {
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+img {
+    width: 100px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.create {
+    background-color: rgb(5, 170, 5);
+    color: white;
+}
+
+.container1 {
+    min-height: 50vh;
+    padding: 15px 0px;
+    margin: 0px auto;
+    width: 100%;
+}
+
+mat-icon {
+    font-size: large;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.main-body {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1348px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.action {
+    display: flex;
+    gap: 5px;
+}

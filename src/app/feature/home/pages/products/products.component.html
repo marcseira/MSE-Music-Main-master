@@ -1,0 +1,38 @@
+<div class="main">
+    <div class="filter-bar">
+        <form class="search-bar" (ngSubmit)="search()" autocomplete="off">
+            <input type="text" placeholder="Buscar" name="termino" [(ngModel)]="word">
+            <button type="submit"><img src="../../../../../assets/search.png"></button>
+        </form>
+        <ul class="indicator">
+            <li class="active"><a href="/products">Todos</a></li> 
+            <li *ngFor="let categorie of categories">
+                <a (click)="filter(categorie.id)">{{categorie.name}}</a>
+            </li>
+        </ul>
+        <div class="filter-condition">
+            <span>Ordenar por BPM: </span>
+            <select name="" id="select" (change)="sortBPM($event)" >
+                <option hidden selected>Selecciona</option>
+                <option value="LowToHigh">Bajo a alto</option>
+                <option value="HighToLow">Alto a bajo</option>
+            </select>
+        </div>
+       <!--<ul class="indicator">
+            <li class="active"><a href="/products">Todos</a></li> 
+            <li *ngFor="let remixer of uniqueRemixers">
+              <a (click)="filter2(remixer)">{{remixer}}</a>
+            </li>
+          </ul> --> 
+    </div>
+    <div>
+        <div class="spinner-border text-warning" role="status" style="width: 5rem; height: 5rem;" *ngIf="loadData">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="container">
+            <app-card *ngFor="let product of products" [product]="product"></app-card>
+        </div>
+    </div>
+</div>
+<app-paginator [products]="productsPaginator" [length]="length" [pageIndex]="index" (paginated)="paginated($event)"></app-paginator>
+

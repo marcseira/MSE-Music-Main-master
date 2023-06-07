@@ -1,0 +1,42 @@
+.head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin: 10px 40px;
+}
+
+.listProducts {
+    background-color: var(--back);
+    max-width: 100%;
+    margin: 20px 0px;
+    padding: 15px 15px;
+}
+
+.nothing {
+    text-align: center;
+}
+
+.listProducts img {
+    margin-top: 20px;
+}
+
+.listProducts h1 {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.go {
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: var(--alt-color);
+    color: white;
+    border-radius: 40px;
+    width: 40%;
+    margin-top: 20px;
+}
+
+.go:hover {
+    transition: all 0.5s;
+    background: var(--alt-color-hover);
+}

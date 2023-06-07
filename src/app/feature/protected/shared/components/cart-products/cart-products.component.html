@@ -1,0 +1,20 @@
+<div class="main">
+    <img src="{{product.thumbnail}}" alt="product"/>
+    <div class="contain p-4">
+      <h3 routerLink="/product/{{product.id}}">{{product.title}}</h3>
+      <p>{{product.remixer}}</p>
+     
+    </div>
+     <!--  <div class="buttonsContainer">
+        <button (click)="decrease()">
+            -
+            </button>
+            <span>{{product.quantity}}</span>
+            <button (click)="increase()">
+            +
+            </button>
+         <span>x ${{product.price}}</span>
+   
+    <p class="total" *ngIf="product!=null">Total: ${{total}}</p> </div>--> 
+    <i class="fa-solid fa-trash" type="button" style="color: #ff0000;" (click)="remove(product.id)"></i>
+</div>

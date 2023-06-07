@@ -1,0 +1,8 @@
+<div class="main">
+    <img src="{{product.thumbnail}}" alt="product"/>
+    <div class="contain">
+      <h3 routerLink="/product/{{product.id}}">{{product.title}}</h3>
+      <p>{{product.remixer}}</p>
+    </div>
+    <p class="total" *ngIf="product!=null"><!--Total: 0€{{product.price}}!--></p>
+</div>

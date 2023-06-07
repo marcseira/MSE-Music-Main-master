@@ -1,0 +1,158 @@
+/* Nav-bar */
+img {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  background-color: var(--text);
+}
+
+.logo {
+  width: 120px;
+}
+
+nav .logo {
+  display: none;
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  margin-bottom: 0rem;
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  display: block;
+  margin: 0 2px;
+  font-weight: 500;
+  font-size: large;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: var(--background);
+}
+
+nav ul li a:hover {
+  background: var(--alt-color);
+}
+
+nav ul li a span{
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  height: fit-content;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 5px;
+  transition: 0.2s;
+  align-items: center;
+}
+
+.hamburger .line {
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+  border-radius: 5px;
+  background: var(--background);
+  transition: all 0.5s;
+  transform-origin: left;
+}
+
+.night {
+  background-color: #212526;
+  color: white;
+}
+
+.night span{
+  color: white;
+}
+
+nav ul li .night:hover {
+  background: var(--mode-hover);
+}
+
+.image {
+  width: 20px;
+}
+
+@media only screen and (max-width: 1050px) {
+  /* Nav-bar responsive */
+  header {
+      width: 100%;
+      padding: 0 20px;
+  }
+
+  nav {
+      position: absolute;
+      left: -300px;
+      top: 0;
+      z-index: 999;
+      width: 250px;
+      height: 100vh;
+      background-color: var(--text);
+      transition: 0.2s;
+      box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+
+  #nav_check:checked ~ nav {
+    left: 0;
+  }
+
+  #nav_check:checked ~ .hamburger .line:first-child {
+    transform: rotate(32deg);
+  }
+  
+  #nav_check:checked ~ .hamburger .line:nth-child(2){
+    opacity: 0;
+  }
+  
+  #nav_check:checked ~ .hamburger .line:last-child{
+    transform: rotate(-32deg);
+  }
+
+  nav .logo {
+      display: block;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+  }
+
+  nav ul {
+      display: block;
+      padding: 0 20px;
+      margin-top: 30px;
+  }
+
+  nav ul li a {
+      margin-bottom: 5px;
+      padding: 15px;
+      border-radius: 5px;
+      color: var(--background);
+      font-size: medium;
+  }
+
+  nav ul li a span{
+    display: initial;
+  }
+
+  .hamburger {
+      display: block;
+  }
+
+}

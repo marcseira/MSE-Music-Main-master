@@ -1,0 +1,9 @@
+<div class="head">
+    <h1>Bienvenido, {{profile.name}}</h1>
+    <button mat-raised-button color="warn" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión </button>
+</div>
+<div class="container1">
+    <app-table [products]="products" [totalProducts]="totalProducts" (newTable)="update($event)"></app-table>
+</div>
+<app-paginator [products]="totalProducts" [length]="length" [pageIndex]="0" (paginated)="pagination($event)"></app-paginator>
+

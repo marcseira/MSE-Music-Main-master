@@ -1,0 +1,61 @@
+:root{
+    --alt-color: #e1a743;
+    --alt-color-hover: #faaa20;
+    --background: #000000;
+    --back: rgb(245,245,245);
+    --text: rgb(255, 255, 255);
+    --gra: linear-gradient(45deg, #e1a743, #ffa200);
+    --mode: #325bb3;
+    --mode-back: #0c52e9;
+    --mode-hover: #0c52e9;
+    --box:rgba(0, 0, 0, 0.3);
+    --shadow:rgba(0, 0, 0, 0.12);
+    /* Variables barra de scroll */
+    --scroll-size: 1rem;
+    --scroll-radius: 1rem;
+    --scroll-thumb-color: var(--alt-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    transition: background 0.5s;
+}
+
+body {
+    font-size: 16px;
+    background: var(--text);
+    color: var(--background);
+}
+
+.night-theme {
+    --background: #ffffff;
+    --back: rgb(14, 14, 14);
+    --text: rgb(0, 0, 0);
+    --mode-hover: #e1a743;
+    --box:rgba(255, 255, 255, 0.3);
+    --shadow:rgba(255, 255, 255, 0.12);
+}
+
+body::-webkit-scrollbar {
+    width: var(--scroll-size, 1rem);
+    height: var(--scroll-size, 1rem);
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--scroll-track, transparent);
+    border-radius: var(--scroll-track-radius, var(--scroll-radius));
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb-color, grey);
+    background-image: var(--scroll-thumb, none);
+    border-radius: var(--scroll-thumb-radius, var(--scroll-radius));
+}
+  
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

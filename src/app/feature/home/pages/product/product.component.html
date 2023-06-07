@@ -1,0 +1,27 @@
+<script src="https://unpkg.com/wavesurfer.js@beta"></script>
+
+<body>
+  <div class="container flex">
+    <div class="left">
+      <div class="main_image">
+        <img src="{{product?.thumbnail}}" class="center_image">
+      </div>
+      <div class="row d-flex align-items-center mt-4">
+        <div class=" col-md-2 mx-auto">
+          <button type="button" id="playButton" (click)="play()">
+            <img src="../../../../../assets/icons/play-circle.svg" #playButtonIcon width="35" alt="Play Button">
+          </button>
+        </div>
+        <div id="waveform" class="col-md-10 waveform mx-auto">
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <h3>{{product?.title}}</h3>
+      <p>Artist: {{product?.artist}}<br> Remixer: {{product?.remixer}}</p>
+      <p>{{product?.tempo}} BPM</p>
+
+      <button (click)="addProduct()">Agregar al carrito</button>
+      <button class="back" routerLink="/products">Volver al catalogo</button>
+    </div>
+  </div>

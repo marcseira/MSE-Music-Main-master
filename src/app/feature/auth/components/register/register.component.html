@@ -1,0 +1,38 @@
+<form [formGroup]="miFormulario" (ngSubmit)="register()">
+    <h2>Registro</h2>
+    <div class="inputbox">
+        <i class="fa-regular fa-user"></i>
+        <input type="text" formControlName="fullname" required>
+        <label>Name</label>
+    </div>
+    <div *ngIf="campoValido('name')">
+        <mat-error class="error">
+                Debe ser de minimo 3 caracteres. 
+        </mat-error>
+    </div>
+    <div class="inputbox">
+        <i class="fa-regular fa-envelope"></i>
+        <input type="email" formControlName="email" required>
+        <label>Email</label>
+    </div>
+    <div *ngIf="campoValido('email')">
+        <mat-error class="error">
+                El correo electrónico no es válido.
+        </mat-error>
+    </div>
+    <div class="inputbox">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" formControlName="password" required>
+        <label>Password</label>
+    </div>
+    <div *ngIf="campoValido('password')">
+        <mat-error class="error">
+                Debe ser de minimo 6 caracteres sin espacios. 
+        </mat-error>
+    </div>
+    <button type="submit">Registrarse</button>
+    <div class="register">
+        <p>¿Ya tienes una cuenta? <a routerLink="/auth">Ingresa aquí</a></p>
+    </div>
+</form>
+

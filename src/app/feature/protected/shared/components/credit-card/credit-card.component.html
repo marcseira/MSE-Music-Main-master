@@ -1,0 +1,155 @@
+
+<div class="contenedor">
+    <!-- Tarjeta Delantera -->
+    <section class="tarjeta" id="tarjeta" #card (click)=" rotate(card) ">
+        <div class="delantera">
+            
+            <!-- Contenedor para logo segun numero de tarjeta -->
+            <div class="logo-marca" id="logo-marca"></div>
+
+            <img src="../../../../../../assets/chip-tarjeta.png" class="chip" />
+            <div class="datos">
+                <div class="grupo">
+                    <p  *ngIf="cardNumber !== '' "
+                        class="numero" 
+                        id="numero">{{ cardNumber | creditNumber }}
+                    </p>
+                    <p  *ngIf="cardNumber == '' "
+                        class="numero" 
+                        id="numero"> #### #### #### ####
+                    </p>
+                </div>
+                <div class="flexbox">
+                    <div class="grupo">
+                        <p class="label" 
+                            >Nombre</p>
+                        <p *ngIf=" cardName !== '' "
+                           class="nombre"  
+                           id="nombre"> {{ cardName | uppercase | creditName }} 
+                        </p>
+                        <p *ngIf=" cardName == '' "
+                           class="nombre"  
+                           id="nombre"> Steven
+                        </p>
+                    </div>
+                    <div class="grupo" id="expiracion">
+                        <p class="label">Expiración</p>
+                        <p class="expiracion"><span id="mes"> {{ month }}</span>/<span id="year">{{ year }} </span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tarjeta trasera -->
+        <div class="trasera">
+            <div class="barra-magnetica"></div>
+                <div class="datos">
+                    <div class="grupo" id="ccv">
+                        <p class="label" id="cvvLabel"> CVV </p>
+                        <p class="ccvP text-end" id="codigo"> {{ cvv }} </p>
+                    </div>
+                </div>
+            <div class="logo-marca back" id="logo-marca-trasera"></div>
+        </div>
+    </section>
+
+
+    <!-- Boton abrir formulario -->
+    <div class="contenedor-btn" #button (click)="displayForm()">
+        <button class="btn-abrir-formulario" id="btn-abrir-formulario">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
+    <!-- Formulario -->
+    <form class="formulario-tarjeta" #formulario="ngForm"
+          id="formulario-tarjeta">
+        <div class="grupo">
+            <label for="inputNumero">Número Tarjeta</label>
+            <input  type="text" 
+                    id="inputNumero"
+                    name="cardNumber"
+                    [(ngModel)]="cardNumber"
+                    maxlength="19"
+                    minlength="4"
+                    pattern="^\d*$"
+                    autocomplete="off" 
+                    (keyup)="complete( formulario )"
+                    >
+        </div>
+        <div class="grupo">
+            <label for="inputNombre">Nombre</label>
+            <input type="text" 
+                   id="inputNombre" 
+                   name="cardName"
+                   pattern="/!?^[a-zA-Z\d][a-zA-Z]*$/igm"
+                   [(ngModel)]= " cardName "
+                   maxlength="24"
+                   autocomplete="off"
+                   >
+        </div>
+
+        <div class="flexbox">
+            <div class="grupo expira">
+                <label for="selectMes">Expiración</label>
+                <div class="flexbox">
+                    <div class="grupo-select">
+                        <select name="mes" 
+                                id="selectMes"
+                                [(ngModel)]=" month ">
+                            <option disabled>
+                                {{ month }}
+                            </option>
+                            <option *ngFor="let mes of mesesYear"
+                                    id="mes"> {{ mes }} 
+                            </option>
+                        </select>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="grupo-select">
+                        <select name="year" 
+                                id="selectYear"
+                                [(ngModel)]=" year " 
+                                required>
+                            <option disabled>{{ year }}</option>
+                            <option *ngFor="let year of years"> {{ year }}</option>
+                        </select>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="grupo ccv">
+                <label for="inputCCV">CVV</label>
+                <input type="text" 
+                       id="inputCCV"
+                       name="inputCCV"
+                       [(ngModel)]=" cvv "
+                       placeholder=" "
+                       maxlength="3" 
+                       autocomplete="off"
+                       (click)="rellenarCVV()"
+                       required>
+            </div>
+        </div>
+        <div class="grupo_gmail">
+            <label for="inputGmail">Correo Electronico (Al que se van a enviar los productos comprados)</label>
+            <input  type="email" 
+                    id="inputGmail"
+                    [(ngModel)]="gmailValue" autocomplete="off" autocapitalize="off"
+                    />
+        </div>
+        <div class="d-flex gap-2">
+            <button 
+                    type="button" 
+                    class="btn btn-danger row"
+                    routerLink="/user/cart"
+                    >Regresar al carrito</button>
+            <button
+                    type="button" 
+                    class="btn btn-primary row"
+                    (click)="payment()"
+                    [disabled]="!formulario.invalid"
+                    >Realizar pago</button>
+        </div>
+    </form>
+</div>

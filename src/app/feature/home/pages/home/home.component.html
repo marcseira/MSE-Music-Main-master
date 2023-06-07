@@ -1,0 +1,11 @@
+<app-carousel></app-carousel>
+<app-banner [banner]="banner1"></app-banner>
+<div class="container">
+  <a *ngFor="let categorie of categories" [routerLink]="['/products']" [queryParams]="{ categoryId: categorie.id }">
+    <app-categories [categorie]="categorie"></app-categories>
+  </a>
+</div>
+<app-banner [banner]="banner3"></app-banner>
+<div class="container">
+  <app-card *ngFor="let product of products?.slice(0,5);" [product]="product"></app-card>
+</div>
